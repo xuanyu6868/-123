@@ -86,7 +86,8 @@ const PricingCard: React.FC<PricingCardProps> = ({ icon, tag, price, points, fea
     <motion.div 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative p-10 rounded-[3rem] ${isPopular ? 'bg-black text-white' : 'bg-stone-50 border border-stone-100'} flex flex-col justify-between transition-all duration-500 overflow-hidden cursor-pointer`}
+      whileHover={{ y: -10 }}
+      className={`relative p-10 rounded-[3rem] ${isPopular ? 'bg-black text-white' : 'bg-stone-50 border border-stone-100'} flex flex-col justify-between transition-all duration-500 overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-stone-200/50`}
     >
       {!isPopular && <ParticleLayer isHovered={isHovered} />}
       

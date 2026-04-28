@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Sparkles } from 'lucide-react';
 
 interface NavbarProps {

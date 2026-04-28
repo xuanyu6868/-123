@@ -115,9 +115,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, subtitle, desc }
           </span>
         </h3>
         
-        <p className={`text-xl font-medium leading-tight transition-colors duration-500 ${isHovered ? 'text-stone-400' : 'text-stone-400'}`}>
+        <motion.p 
+          animate={{ 
+            color: isHovered ? "#d6d3d1" : "#a8a29e",
+            y: isHovered ? -5 : 0 
+          }}
+          className="text-xl font-medium leading-tight transition-all duration-500"
+        >
           {desc}
-        </p>
+        </motion.p>
       </div>
     </motion.div>
   );
@@ -315,25 +321,25 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate })
       </section>
 
       {/* Feature Grid - Bento Style */}
-      <section className="py-20 px-6 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      <section className="py-32 px-6 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
             <FeatureCard 
               icon={<Zap className="w-12 h-12" />}
-              title="爆款"
-              subtitle="引擎"
-              desc="潜入全网电商高转化视觉底层逻辑，一秒套用热销密码，打造点击率收割机。"
-            />
-            <FeatureCard 
-              icon={<LayoutGrid className="w-12 h-12" />}
-              title="全域"
-              subtitle="矩阵"
-              desc="智能解析多平台差异化视觉规范，原切出图无缝分发，一次生成铺遍全球渠道。"
+              title="极速"
+              subtitle="出图"
+              desc="告别繁琐修图流程，AI 秒级重塑产品质感。无论是白底图还是全场景商业短片，速度提升 10 倍，让新品抢占首屏流量。"
             />
             <FeatureCard 
               icon={<Sparkles className="w-12 h-12" />}
-              title="无界"
-              subtitle="摄制"
-              desc="解锁顶级 3D 数字外景与百变换模，彻底粉碎昂贵棚拍成本，实现创作上的降维打击。"
+              title="爆款出"
+              subtitle="主图"
+              desc="基于千万级电商热销数据，AI 智能匹配高转化构图法则。精准击穿用户心智，打造令对手绝望的点击率收割机。"
+            />
+            <FeatureCard 
+              icon={<LayoutGrid className="w-12 h-12" />}
+              title="详情页"
+              subtitle="转化王"
+              desc="深度击穿‘跳出率高、转化率低’的核心痛点。AI 自动剖析商品逻辑，生成兼具视觉美感与极强诱导力的黄金卖点，让您的流量损耗降到最低，订单转化直接翻倍。"
             />
         </div>
       </section>
@@ -347,29 +353,45 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate })
               whileInView={{ opacity: 1, x: 0 }}
               className="inline-block px-4 py-1.5 bg-stone-100 rounded-full text-[10px] font-black tracking-widest uppercase mb-6"
             >
-              重新定义真实
+              流量主图引擎
             </motion.div>
-            <h2 className="text-7xl font-impact italic uppercase leading-tight tracking-tighter mb-6">
-              极致物理 <br /><span className="text-stone-300">感官震撼</span>
-            </h2>
+            <motion.h2 
+              className="text-7xl font-impact italic uppercase leading-tight tracking-tighter mb-6 text-red-500 cursor-default select-none origin-left"
+            >
+              <motion.span 
+                whileHover={{ x: 20, scale: 1.05, color: "#ff0000" }} 
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="inline-block"
+              >
+                爆款出主图
+              </motion.span> 
+              <br />
+              <motion.span 
+                whileHover={{ x: 40, scale: 1.05, color: "#1c1917" }} 
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="text-stone-500 inline-block"
+              >
+                全网点击王
+              </motion.span>
+            </motion.h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
       {
         url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=800",
-        title: "永恒奢华",
-        desc: "精密的拉丝金属纹理与微距镜头下的蓝宝石玻璃质感。"
+        title: "视觉抓手",
+        desc: "强对比光影聚焦核心卖点，在一众搜索结果中强势突围，瞬间夺取消费者注意力。"
       },
       {
         url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=800",
-        title: "声学大师",
-        desc: "哑光亲肤材质在冷色调环境光下的细腻呈现。"
+        title: "沉浸式溢价",
+        desc: "打造媲美旗舰级广告的物理光影质感，用视觉重塑产品溢价力，大幅拉升进店率。"
       },
       {
         url: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=800",
-        title: "街头前沿",
-        desc: "复杂拼接面料与街头日光阴影的物理仿真。"
+        title: "全速转化",
+        desc: "AI 智能捕捉爆款构图法则，将点击兴趣秒级转化为购买欲望，构建高转化的视觉闭环。"
       }
     ].map((item, i) => (
       <motion.div
@@ -386,11 +408,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate })
           alt={item.title}
           referrerPolicy="no-referrer"
         />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="text-white text-3xl font-impact uppercase italic mb-2 tracking-tight">{item.title}</h4>
-                  <p className="text-stone-300 text-sm font-medium">{item.desc}</p>
-                </div>
-              </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent p-10 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h4 className="text-white text-3xl font-impact uppercase italic mb-2 tracking-tight">{item.title}</h4>
+          <p className="text-stone-300 text-sm font-medium">{item.desc}</p>
+        </div>
+      </motion.div>
             ))}
           </div>
         </div>
